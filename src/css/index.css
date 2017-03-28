@@ -1,0 +1,86 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+body{
+  /* Background pattern from Subtle Patterns */
+  background-image: url('../img/husk.png');
+}
+
+.app {
+  margin: 50px;
+  font: 14px sans-serif;
+}
+.ib {
+  display: inline-block;
+}
+
+.linkSelector{
+  min-height: 62px;
+  padding-top: 19px;
+}
+.headerLinks{
+  margin-top:20px;
+}
+
+.headerLinks a{
+  font-size:20px;
+}
+.page {
+  width: 80%;
+}
+.user {
+  width: 20%;
+  vertical-align: top;
+}
+
+.btn {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
+  outline: 0;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: #fff;
+  background-color: #6383a8;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #6d8cb0
+}
+.footer{
+  height: 50px;
+  background-color: #6C6C6C;
+}
+.mainTextArea{
+  height: 250px;
+}
+.contentWrap{
+  margin-top: 50px;
+  height: 50px;
+}
+.footerDate {
+    font-size: 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: white;
+}
+.card{
+  background-color: #acd5bc;
+  margin-top: 10px;
+  border: 1px solid #a6a6a6;
+}
+.deleteCard{
+  font-size: 35px;
+  position: relative;
+  left: 7px;
+  top: 0px;
+}
