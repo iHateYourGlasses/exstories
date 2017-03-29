@@ -8,7 +8,7 @@ export default class CardForm extends Component {
 		this.props.updateDescState(e.target.value);
 	}
 	CreateNewCard(e){
-		this.props.CreateNewCard(this.props.cardForm.name, this.props.cardForm.desc);
+		this.props.CreateNewCard(this.props.cardForm.title, this.props.cardForm.desc);
 	}
 	render() {
 
@@ -16,10 +16,9 @@ export default class CardForm extends Component {
 
 		return(
 			<form className="form">
-				<h4 className='text-center '>Создать карточку</h4>
 				<div className='form-group'>
 	  				<label htmlFor="cardName">Имя:</label>
-	  				<input type="text" className="form-control" id="cardName" onChange={this.updateNameState.bind(this)} defaultValue={this.props.cardForm.name}/>
+	  				<input type="text" className="form-control" id="cardName" onChange={this.updateNameState.bind(this)} defaultValue={this.props.cardForm.title}/>
 	  			</div>
 				<div className='form-group'>
 	  				<label htmlFor="cardDescription">Описание:</label>

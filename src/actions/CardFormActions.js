@@ -22,11 +22,11 @@ export function updateDescState(desc) {
 		});
 	}
 }
-export function CreateNewCard(name, desc) {
+export function CreateNewCard(title, desc) {
 	return (dispatch) => {
 		dispatch({
 			type: CREATE_CARD,
-			payload: {name: name, desc: desc}
+			payload: {title: title, desc: desc}
 		});
 	}
 }

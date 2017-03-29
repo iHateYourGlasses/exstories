@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import './../css/App.css';
-
 import Card from '../components/Card'
 
 import * as CardActions from '../actions/CardActions'
@@ -16,7 +14,7 @@ export class Cards extends Component{
       <div className='row'>
         {
           cards.cards.map((entry, index) =>
-            <Card name={entry.name} desc={entry.desc} id={entry.id} key={index} deleteCard={deleteCard} />
+            <Card title={entry.title} desc={entry.desc} id={entry.id} key={index} deleteCard={deleteCard} />
           )
         }
       </div>
