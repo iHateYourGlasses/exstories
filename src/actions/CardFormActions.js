@@ -10,7 +10,7 @@ export function updateNameState(name) {
 	return (dispatch) => {
 		dispatch({
 			type: UPDATE_CARD_FORM_NAME,
-			payload: {name: name}
+			payload: {title: name}
 		});
 	}
 }

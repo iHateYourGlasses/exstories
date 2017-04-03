@@ -11,7 +11,7 @@ export class Cards extends Component{
     const { cards} = this.props
     const { deleteCard } = this.props.CardActions
     return (
-      <div className='row'>
+      <div className='row cardsRow'>
         {
           cards.cards.map((entry, index) =>
             <Card title={entry.title} desc={entry.desc} id={entry.id} key={index} deleteCard={deleteCard} />

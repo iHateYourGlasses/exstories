@@ -9,23 +9,27 @@ import configureStore from './store/configureStore'
 import './../node_modules/bootstrap/dist/css/bootstrap.css'
 import './css/index.css'
 
-import Header from './components/Header'
+import Logo from './components/Logo'
+import Menu from './components/Menu'
 import Footer from './components/Footer'
 
 import CardForm from './containers/CardForm'
 import Cards from './containers/Cards'
+import Auth from './containers/Auth'
 
-const store = configureStore(); 
+const store = configureStore();
 
 render(
     <Provider store={store}>
     	<Router >
 		    <div className='container'>
-		  		<Header />
+				<Logo />
+		  		<Menu />
+		  		<Route path='/login' component={Auth} />
 		  		<Route path='/createCard' component={CardForm} />
 		  		<Route path='/myCards' component={Cards} />
 		    	<Footer />
-				</div>
+			</div>
 	    </Router>
     </Provider>,
  	document.getElementById('root')

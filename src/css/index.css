@@ -17,13 +17,28 @@ body{
     font-size: 27px;
 }
 
-@media(min-width:1350px){
+@media(min-width:1200px){
 
-    .app-logo{
+   /* .app-logo{
         position:absolute;
         left: 10px;
-    }
+    }*/
 }
+#auth{
+  height: 70px;
+  background: #fff;
+}
+
+@media(min-width:1750px){
+
+  /*#auth{
+    position: absolute;
+    right: 50px;
+    width: 250px;
+    top: 10px;
+  }*/
+}
+
 
 .linkSelector{
   min-height: 62px;
@@ -43,28 +58,6 @@ body{
   width: 20%;
   vertical-align: top;
 }
-
-.btn {
-  border: none;
-  border-radius: 2px;
-  display: inline-block;
-  height: 36px;
-  line-height: 36px;
-  font-size: 16px;
-  outline: 0;
-  padding: 0 2rem;
-  text-transform: uppercase;
-  vertical-align: middle;
-  color: #fff;
-  background-color: #6383a8;
-  text-align: center;
-  letter-spacing: .5px;
-  transition: .2s ease-out;
-  cursor: pointer;
-}
-.btn:hover {
-  background-color: #6d8cb0
-}
 .footer{
   height: 50px;
   background-color: #6C6C6C;
@@ -82,6 +75,30 @@ body{
     margin-top: 10px;
     color: white;
 }
+
+.cardsRow, .authRow{
+  margin-top:60px;
+}
+
+.loader {
+  display:inline-block;
+  position:relative;
+  top: 6px;
+  left:9px;
+  border: 1px solid black;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .card{
   margin-top: 20px;
   border: 2px solid #a6a6a6;
@@ -104,3 +121,4 @@ body{
   right: 8px;
   top: -2px;
 }
+

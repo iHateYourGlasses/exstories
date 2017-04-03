@@ -2,7 +2,7 @@ import {
 UPDATE_CARD_FORM_NAME,
 UPDATE_CARD_FORM_DESC} from '../constants/CardForm'
 
-const initialState = {title: 'Заголовок', desc: 'Простыня о невзаимной любви'}
+const initialState = {title: 'Заголовок', desc: 'Простыня о невзаимной любви', publishType: 'Анонимно'};
 
 export default function cards(state = initialState, action) {
 	switch(action.type){
