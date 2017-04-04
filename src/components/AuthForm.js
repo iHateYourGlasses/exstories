@@ -11,7 +11,7 @@ export default class AuthForm extends Component {
         this.props.actions.updatePassState(e.target.value);
 	}
 	Login(){
-		let mail = this.props.data.email;
+		let mail = this.props.data.mail;
 		let password = this.props.data.pass;
         this.props.actions.login(mail, password);
 	}
@@ -20,11 +20,11 @@ export default class AuthForm extends Component {
 			<form className="form authForm">
 				<div className='form-group'>
 	  				<label htmlFor="authMail">Почта:</label>
-	  				<input type="mail" className="form-control" id="authMail" onChange={this.updateMailState.bind(this)}/>
+	  				<input type="mail" className="form-control" id="authMail" onChange={this.updateMailState.bind(this)} defaultValue={this.props.data.mail}/>
 	  			</div>
 				<div className='form-group'>
 	  				<label htmlFor="authName">Имя:</label>
-	  				<input type="text" className="form-control" id="authName" onChange={this.updateNameState.bind(this)}/>
+	  				<input type="text" className="form-control" id="authName" onChange={this.updateNameState.bind(this)} defaultValue={this.props.data.userName}/>
 	  			</div>
 				<div className='form-group'>
 	  				<label htmlFor="authPass">Пароль:</label>

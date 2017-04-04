@@ -122,3 +122,8 @@ body{
   top: -2px;
 }
 
+.exitBtn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
