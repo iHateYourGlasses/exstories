@@ -10,12 +10,12 @@ import './../node_modules/bootstrap/dist/css/bootstrap.css'
 import './css/index.css'
 
 import Logo from './components/Logo'
-import Menu from './components/Menu'
 import Footer from './components/Footer'
 
 import CardForm from './containers/CardForm'
 import Cards from './containers/Cards'
 import Auth from './containers/Auth'
+import Menu from './containers/Menu'
 
 const store = configureStore();
 

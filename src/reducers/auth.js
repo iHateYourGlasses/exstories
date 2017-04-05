@@ -9,7 +9,7 @@ import {
     UPDATE_MAIL_STATE,
     UPDATE_PASS_STATE} from '../constants/Auth'
 
-const initialState = {mail: '', pass: '', isSigned: false, userName: false, isLoading: false};
+const initialState = {mail: 'test@mail.ru', pass: 'password', isSigned: false, userName: 'WagonPenetrator', isLoading: false};
 
 export default function auth(state = initialState, action) {
 	switch(action.type){

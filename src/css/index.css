@@ -99,12 +99,19 @@ body{
   100% { transform: rotate(360deg); }
 }
 
-.card{
+.card, .userWrap{
   margin-top: 20px;
   border: 2px solid #a6a6a6;
   padding: 45px;
   padding-right: 80px;
   background-color: #f4f4f4;
+}
+
+.userWrap{
+  height:auto;
+}
+.userWrap form .form-group{
+  margin-top: 20px;
 }
 .card h4{
   font-size: 23px;
