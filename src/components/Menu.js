@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 
 export default class Header extends Component {
 	render() {
+        const { isSigned } = this.props;
+        let glyph =  isSigned ? 'glyphicon glyphicon-log-out': 'glyphicon glyphicon-log-in';
+        let linkLogInOut = isSigned  ? '/login':'/login';
+
 		return(
 				<ul className='row headerLinks list-group list-unstyled row-fluid header'>
 					<li className=''>
@@ -14,8 +18,8 @@ export default class Header extends Component {
 						</Link>
 					</li>
 					<li className=''>
-						<Link to='/login' className='col-xs-1 text-center list-group-item'>
-							<span className="glyphicon glyphicon-log-in" />
+						<Link to={linkLogInOut} className='col-xs-1 text-center list-group-item'>
+							<span className={glyph} />
 						</Link>
 					</li>
 				</ul>
