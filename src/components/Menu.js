@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 export default class Header extends Component {
 	render() {
         const { isSigned } = this.props;
-        let glyph =  isSigned ? 'glyphicon glyphicon-log-out': 'glyphicon glyphicon-log-in';
-        let linkLogInOut = isSigned  ? '/login':'/login';
+        let glyph =  isSigned ? 'glyphicon glyphicon glyphicon-user': 'glyphicon glyphicon-log-in';
+        let linkLogInOut = isSigned  ? '/userpage':'/login';
 
 		return(
 				<ul className='row headerLinks list-group list-unstyled row-fluid header'>
