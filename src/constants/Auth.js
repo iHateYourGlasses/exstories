@@ -1,9 +1,6 @@
 export const TRY_TO_LOGIN = 'TRY_TO_LOGIN';
 export const LOGIN_SUCCEES = 'LOGIN_SUCCEES';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
-export const TRY_TO_LOGOUT = 'TRY_TO_LOGOUT';
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-export const LOGOUT_FAIL = 'LOGOUT_FAIL';
 export const UPDATE_NAME_STATE = 'UPDATE_NAME_STATE';
 export const UPDATE_MAIL_STATE = 'UPDATE_MAIL_STATE';
 export const UPDATE_PASS_STATE = 'UPDATE_PASS_STATE';

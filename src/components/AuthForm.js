@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 
 export default class AuthForm extends Component {
     updateNameState(e){
@@ -16,6 +17,12 @@ export default class AuthForm extends Component {
         this.props.actions.login(mail, password);
 	}
 	render() {
+
+        if (this.props.data.isSigned) {
+            return (
+				<Redirect to={'/userpage'}/>
+            )
+        }
 		return(
 			<form className="form authForm">
 				<div className='form-group'>

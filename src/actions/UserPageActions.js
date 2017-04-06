@@ -1,35 +1,35 @@
 import {
-TRY_TO_LOGIN,
-LOGIN_SUCCEES,
-LOGIN_FAIL,
+TRY_TO_LOGOUT,
+LOGOUT_SUCCESS,
+LOGOUT_FAIL/*,
 UPDATE_NAME_STATE,
 UPDATE_MAIL_STATE,
-UPDATE_PASS_STATE} from '../constants/Auth'
+UPDATE_PASS_STATE*/} from '../constants/UserPage'
 
-export function login(mail, pass) {
+export function logout() {
     return (dispatch) => {
         dispatch({
-            type: TRY_TO_LOGIN ,
+            type: TRY_TO_LOGOUT,
             payload: {}
         });
 
         setTimeout(() => {
             if(Math.random()>0.1){
                 dispatch({
-                    type: LOGIN_SUCCEES,
+                    type: LOGOUT_SUCCESS,
                     payload: {}
                 })
             }
             else{
                 dispatch({
-                    type: LOGIN_FAIL,
+                    type: LOGOUT_FAIL,
                     payload: {}
                 })
             }
         }, 600)
     }
 }
-
+/*
 export function updateNameState(name) {
     return (dispatch) => {
         dispatch({
@@ -53,4 +53,4 @@ export function updateMailState(mail) {
             payload: {mail: mail}
         });
     }
-}
+}*/

@@ -15,6 +15,7 @@ import Footer from './components/Footer'
 import CardForm from './containers/CardForm'
 import Cards from './containers/Cards'
 import Auth from './containers/Auth'
+import UserPage from './containers/UserPage'
 import Menu from './containers/Menu'
 
 const store = configureStore();
@@ -26,6 +27,7 @@ render(
 				<Logo />
 		  		<Menu />
 		  		<Route path='/login' component={Auth} />
+		  		<Route path='/userpage' component={UserPage} />
 		  		<Route path='/createCard' component={CardForm} />
 		  		<Route path='/myCards' component={Cards} />
 		    	<Footer />

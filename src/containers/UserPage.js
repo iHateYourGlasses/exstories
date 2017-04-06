@@ -2,17 +2,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import AuthForm from '../components/AuthForm'
+import UserPage from '../components/UserPage'
 
-import * as AuthActions from '../actions/AuthActions'
+import * as UserPageActions from '../actions/UserPageActions'
 
 export class Auth extends Component{
   render() {
-   const authData = this.props.auth;
-   const authActions = this.props.AuthActions
+   const userPageData= this.props.auth;
+   const authData= this.props.auth;
+   const userPageActions = this.props.UserPageActions
     return (
       <div className="row authRow">
-          <AuthForm data={authData} actions={authActions} />
+          <UserPage authData={authData} userPageData={userPageData} actions={userPageActions}  />
       </div>
       );
   }
@@ -20,13 +21,14 @@ export class Auth extends Component{
 
 function mapStateToProps (state) {
   return {
+   userpage: state.userpage,
    auth: state.auth
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    AuthActions: bindActionCreators(AuthActions, dispatch)
+    UserPageActions: bindActionCreators(UserPageActions, dispatch)
   }
 }
 
