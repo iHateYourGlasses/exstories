@@ -1,5 +1,5 @@
 export const TRY_TO_LOGIN = 'TRY_TO_LOGIN';
-export const LOGIN_SUCCEES = 'LOGIN_SUCCEES';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const UPDATE_NAME_STATE = 'UPDATE_NAME_STATE';
 export const UPDATE_MAIL_STATE = 'UPDATE_MAIL_STATE';

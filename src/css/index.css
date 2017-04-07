@@ -109,7 +109,21 @@ body{
 
 .userWrap{
   height:auto;
+  padding-top: 20px;
 }
+
+.updateUserInfoButton{
+  border: 1px solid #ccc;
+  border-left: none;
+}
+.updateUserInfoButton.edit{
+  background: #f4f4f4;
+}
+
+.updateUserInfoButton.edit:hover{
+  background-color: #e1dfe0;
+}
+
 .userWrap form .form-group{
   margin-top: 20px;
 }

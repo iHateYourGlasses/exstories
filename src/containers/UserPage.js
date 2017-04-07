@@ -1,28 +1,25 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 
 import UserPage from '../components/UserPage'
 
 import * as UserPageActions from '../actions/UserPageActions'
 
-export class Auth extends Component{
+export class Auth extends Component {
   render() {
-   const userPageData= this.props.auth;
-   const authData= this.props.auth;
-   const userPageActions = this.props.UserPageActions
     return (
-      <div className="row authRow">
-          <UserPage authData={authData} userPageData={userPageData} actions={userPageActions}  />
-      </div>
-      );
+        <div className="row authRow">
+          <UserPage authData={this.props.auth} userPageData={this.props.userpage} actions={this.props.UserPageActions}/>
+        </div>
+    );
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
-   userpage: state.userpage,
-   auth: state.auth
+    userpage: state.userpage,
+    auth: state.auth
   }
 }
 

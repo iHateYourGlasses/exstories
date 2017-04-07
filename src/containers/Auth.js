@@ -1,26 +1,26 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 
 import AuthForm from '../components/AuthForm'
 
 import * as AuthActions from '../actions/AuthActions'
 
-export class Auth extends Component{
+export class Auth extends Component {
   render() {
-   const authData = this.props.auth;
-   const authActions = this.props.AuthActions
+    const authData = this.props.auth;
+    const authActions = this.props.AuthActions
     return (
-      <div className="row authRow">
-          <AuthForm data={authData} actions={authActions} />
-      </div>
-      );
+        <div className="row authRow">
+          <AuthForm data={authData} actions={authActions}/>
+        </div>
+    );
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
-   auth: state.auth
+    auth: state.auth
   }
 }
 

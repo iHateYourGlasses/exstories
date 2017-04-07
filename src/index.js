@@ -1,7 +1,6 @@
 import React from 'react';
-import { render} from 'react-dom';
-import { Provider } from 'react-redux'
-//import {BrowserRouter as Router} from 'react-router-dom'
+import {render} from 'react-dom';
+import {Provider} from 'react-redux'
 import {HashRouter as Router, Route} from 'react-router-dom'
 
 import configureStore from './store/configureStore'
@@ -22,17 +21,17 @@ const store = configureStore();
 
 render(
     <Provider store={store}>
-    	<Router >
-		    <div className='container'>
-				<Logo />
-		  		<Menu />
-		  		<Route path='/login' component={Auth} />
-		  		<Route path='/userpage' component={UserPage} />
-		  		<Route path='/createCard' component={CardForm} />
-		  		<Route path='/myCards' component={Cards} />
-		    	<Footer />
-			</div>
-	    </Router>
+      <Router >
+        <div className='container'>
+          <Logo />
+          <Menu />
+          <Route path='/login' component={Auth}/>
+          <Route path='/userpage' component={UserPage}/>
+          <Route path='/createCard' component={CardForm}/>
+          <Route path='/myCards' component={Cards}/>
+          <Footer />
+        </div>
+      </Router>
     </Provider>,
- 	document.getElementById('root')
+    document.getElementById('root')
 );
