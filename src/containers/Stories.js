@@ -3,10 +3,11 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
 import Card from '../components/Card'
+import Pagination from '../components/Pagination'
 
 import * as CardActions from '../actions/CardActions'
 
-export class Cards extends Component {
+export class Stories extends Component {
   render() {
     const {cards} = this.props
     const {deleteCard} = this.props.CardActions
@@ -14,9 +15,11 @@ export class Cards extends Component {
         <div className='row cardsRow'>
           {
             cards.cards.map((entry, index) =>
-                <Card title={entry.title} desc={entry.desc} id={entry.id} key={index} deleteCard={deleteCard}/>
+                <Card title={entry.title} desc={entry.desc} id={entry.id}
+                key={index} deleteCard={deleteCard}/>
             )
           }
+          <Pagination />
         </div>
     );
   }
@@ -34,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cards)
+export default connect(mapStateToProps, mapDispatchToProps)(Stories)

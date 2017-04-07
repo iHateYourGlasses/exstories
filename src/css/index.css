@@ -7,7 +7,9 @@ body{
   /* Background pattern from Subtle Patterns */
   background-image: url('../img/husk.png');
 }
-
+#root{
+  min-height: 100%;
+}
 .app {
   margin: 50px;
   font: 14px sans-serif;
@@ -17,26 +19,9 @@ body{
     font-size: 27px;
 }
 
-@media(min-width:1200px){
-
-   /* .app-logo{
-        position:absolute;
-        left: 10px;
-    }*/
-}
 #auth{
   height: 70px;
   background: #fff;
-}
-
-@media(min-width:1750px){
-
-  /*#auth{
-    position: absolute;
-    right: 50px;
-    width: 250px;
-    top: 10px;
-  }*/
 }
 
 
@@ -147,4 +132,16 @@ body{
   position: absolute;
   right: 10px;
   top: 10px;
+}
+
+a.storiesLink{
+  border-right:0;
+
+}
+.storiesLink{
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.storiesLink:hover{
+  background-color: #fff;
 }

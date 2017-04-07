@@ -10,16 +10,27 @@ export default class Header extends Component {
     return (
         <ul className='row headerLinks list-group list-unstyled row-fluid header'>
           <li className=''>
-            <Link to='/myCards' className='col-xs-10 text-center list-group-item'>Истории</Link>
-          </li>
-          <li className=''>
-            <Link to='/createCard' className='col-xs-1 text-center list-group-item'>
-              <span className="glyphicon glyphicon-plus-sign"/>
+            <Link to={linkLogInOut} className='col-md-2 col-xs-12 pull-right text-center list-group-item'>
+              <span  className={glyph}/>
             </Link>
           </li>
+          <li className='col-md-4 col-xs-12'>
+            <Link to='/stories' className='text-center col-xs-12 list-group-item storiesLink'>
+              Истории
+            </Link>
+            <button className="btn btn-link storiesLink col-md-5 col-xs-12">
+              <Link to="/stories/all">Все подряд</Link>
+            </button>
+            <button className="btn btn-link storiesLink col-md-3 col-xs-12">
+              <Link to="/stories/top">Лучшие</Link>
+            </button>
+            <button className="btn btn-link storiesLink col-md-4 col-xs-12">
+              <Link to="/stories/trending">В тренде</Link>
+            </button>
+          </li>
           <li className=''>
-            <Link to={linkLogInOut} className='col-xs-1 text-center list-group-item'>
-              <span className={glyph}/>
+            <Link to='/createCard'  className='col-md-2 col-xs-12 text-center list-group-item newStoryLink'>
+              <span className="glyphicon glyphicon-plus-sign"/>
             </Link>
           </li>
         </ul>

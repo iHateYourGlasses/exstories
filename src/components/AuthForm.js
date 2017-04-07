@@ -31,19 +31,24 @@ export default class AuthForm extends Component {
         <form className="form authForm">
           <div className='form-group'>
             <label htmlFor="authMail">Почта:</label>
-            <input type="mail" className="form-control" id="authMail" onChange={this.updateMailState.bind(this)}
+            <input type="mail" className="form-control" id="authMail"
+                   onChange={this.updateMailState.bind(this)}
                    defaultValue={this.props.data.mail}/>
           </div>
           <div className='form-group'>
             <label htmlFor="authName">Имя:</label>
-            <input type="text" className="form-control" id="authName" onChange={this.updateNameState.bind(this)}
+            <input type="text" className="form-control" id="authName"
+                   onChange={this.updateNameState.bind(this)}
                    defaultValue={this.props.data.userName}/>
           </div>
           <div className='form-group'>
             <label htmlFor="authPass">Пароль:</label>
-            <input type="password" className="form-control" id="authPass" onChange={this.updatePassState.bind(this)}/>
+            <input type="password" className="form-control" id="authPass"
+                   onChange={this.updatePassState.bind(this)}/>
           </div>
-          <button type="button" className="btn btn-primary" onClick={this.Login.bind(this)}>Войти</button>
+          <button type="button" className="btn btn-primary"
+                  onClick={this.Login.bind(this)}>Войти
+          </button>
 
           {
             (this.props.data.isLoading === true)
