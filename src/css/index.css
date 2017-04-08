@@ -145,3 +145,7 @@ a.storiesLink{
 .storiesLink:hover{
   background-color: #fff;
 }
+
+.newStoryLink{
+  margin-top: 20px;
+}

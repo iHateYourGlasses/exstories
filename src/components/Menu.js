@@ -28,11 +28,6 @@ export default class Header extends Component {
               <Link to="/stories/trending">В тренде</Link>
             </button>
           </li>
-          <li className=''>
-            <Link to='/createCard'  className='col-md-2 col-xs-12 text-center list-group-item newStoryLink'>
-              <span className="glyphicon glyphicon-plus-sign"/>
-            </Link>
-          </li>
         </ul>
     )
   }

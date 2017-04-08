@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import Menu from '../components/Menu'
 
-//import * as CardActions from '../actions/CardActions'
+//import * as StoriesActions from '../actions/StoriesActions'
 
 export class Cards extends Component {
   render() {
@@ -23,7 +23,7 @@ function mapStateToProps(state) {
 /*
  function mapDispatchToProps(dispatch) {
  return {
- CardActions: bindActionCreators(CardActions, dispatch)
+ StoriesActions: bindActionCreators(StoriesActions, dispatch)
  }
  }*/
 

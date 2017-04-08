@@ -3,23 +3,23 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
 import Card from '../components/Card'
-import Pagination from '../components/Pagination'
+import StoriesFooter from '../components/StoriesFooter'
 
 import * as CardActions from '../actions/CardActions'
 
 export class Stories extends Component {
   render() {
-    const {cards} = this.props
-    const {deleteCard} = this.props.CardActions
+    const {stories} = this.props
+    const {deleteCard} = this.props.StoriesActions
     return (
         <div className='row cardsRow'>
           {
-            cards.cards.map((entry, index) =>
+            stories.stories.map((entry, index) =>
                 <Card title={entry.title} desc={entry.desc} id={entry.id}
                 key={index} deleteCard={deleteCard}/>
             )
           }
-          <Pagination />
+          <StoriesFooter />
         </div>
     );
   }
@@ -27,13 +27,13 @@ export class Stories extends Component {
 
 function mapStateToProps(state) {
   return {
-    cards: state.cards
+    stories: state.stories
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    CardActions: bindActionCreators(CardActions, dispatch)
+    StoriesActions: bindActionCreators(CardActions, dispatch)
   }
 }
 
