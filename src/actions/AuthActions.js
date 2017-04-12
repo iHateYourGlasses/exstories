@@ -2,10 +2,27 @@ import {
   TRY_TO_LOGIN,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  UPDATE_NAME_STATE,
-  UPDATE_MAIL_STATE,
-  UPDATE_PASS_STATE
+  UPDATE_AUTH_FORM_INPUT_STATE,
+  SWITCH_AUTH_VIEW
 } from '../constants/Auth'
+
+export function updateFormInputState(id, newVal) {
+  return (dispatch) => {
+    dispatch({
+      type: UPDATE_AUTH_FORM_INPUT_STATE,
+      payload: {id: id, newVal: newVal}
+    });
+  }
+}
+
+export function switchAuthView() {
+  return (dispatch) => {
+    dispatch({
+      type: SWITCH_AUTH_VIEW,
+      payload: {}
+    });
+  }
+}
 
 export function login(mail, pass) {
   return (dispatch) => {
@@ -27,31 +44,6 @@ export function login(mail, pass) {
           payload: {}
         })
       }
-    }, 600)
-  }
-}
-
-export function updateNameState(name) {
-  return (dispatch) => {
-    dispatch({
-      type: UPDATE_NAME_STATE,
-      payload: {name: name}
-    });
-  }
-}
-export function updatePassState(pass) {
-  return (dispatch) => {
-    dispatch({
-      type: UPDATE_PASS_STATE,
-      payload: {pass: pass}
-    });
-  }
-}
-export function updateMailState(mail) {
-  return (dispatch) => {
-    dispatch({
-      type: UPDATE_MAIL_STATE,
-      payload: {mail: mail}
-    });
+    }, 400)
   }
 }

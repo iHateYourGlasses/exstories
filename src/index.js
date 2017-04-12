@@ -16,6 +16,7 @@ import Stories from './containers/Stories'
 import Auth from './containers/Auth'
 import UserPage from './containers/UserPage'
 import Menu from './containers/Menu'
+import Story from './containers/Story'
 
 const store = configureStore();
 
@@ -28,7 +29,11 @@ render(
           <Route path='/login' component={Auth}/>
           <Route path='/userpage' component={UserPage}/>
           <Route path='/createCard' component={CardForm}/>
-          <Route path='/stories' component={Stories}/>
+
+          <Route path='/stories/:storyType' exact={true} component={Stories}/>
+
+          <Route path='/stories/:storyType/:storyId' exact={true} component={Story}/>
+
         </div>
       </Router>
     </Provider>,

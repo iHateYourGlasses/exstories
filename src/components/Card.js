@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 export default class Card extends Component {
   deleteCard(e) {
@@ -6,7 +7,8 @@ export default class Card extends Component {
   }
 
   render() {
-    const {title, desc} = this.props;
+    const {title, desc, curPath, id} = this.props;
+    const link = curPath+'/'+id
     return (
         <div className='card col-xs-12'>
 
@@ -14,7 +16,7 @@ export default class Card extends Component {
             <span aria-hidden="true">&times;</span>
           </button>
 
-          <h4>{title}</h4>
+          <h4 className="cardTitle"><Link to={link}>{title}</Link></h4>
           <p className="cardMainText">{desc}</p>
 
         </div>

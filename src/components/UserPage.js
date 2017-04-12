@@ -65,8 +65,9 @@ export default class Card extends Component {
             <div className="form-group col-xs-12">
               <label htmlFor="userPagePassInput" className="col-xs-12">Пароль: </label>
               <input type="password" className="form-control col-xs-12"
+                     data-inputctx="pass"
                      defaultValue={authData.pass}
-                     onChange={this.updateFormInputState.bind(this)} data-inputctx="pass"/>
+                     onChange={this.updateFormInputState.bind(this)} />
               {
                 (userPageData.pass)
                     ? (<button className={"btn updateUserInfoButton " + userPageData.pass_status} data-inputctx="pass"

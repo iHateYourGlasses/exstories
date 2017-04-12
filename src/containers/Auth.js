@@ -9,7 +9,7 @@ import * as AuthActions from '../actions/AuthActions'
 export class Auth extends Component {
   render() {
     const authData = this.props.auth;
-    const authActions = this.props.AuthActions
+    const authActions = this.props.AuthActions;
     return (
         <div className="row authRow">
           <AuthForm data={authData} actions={authActions}/>

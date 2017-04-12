@@ -1,11 +1,6 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
 body{
   /* Background pattern from Subtle Patterns */
-  background-image: url('../img/husk.png');
+  background-image: url('../img/green_cup.png');
 }
 #root{
   min-height: 100%;
@@ -16,14 +11,26 @@ body{
 }
 
 .app-logo{
-    font-size: 27px;
+  font-size: 27px;
+  color: white;
 }
 
 #auth{
   height: 70px;
   background: #fff;
 }
+.authForm{
+  padding:35px;
+  padding-top:0;
+}
 
+.authButton{
+  margin-bottom:35px;
+}
+.registration_switch{
+  margin-left:10px;
+  cursor: pointer;
+}
 
 .linkSelector{
   min-height: 62px;
@@ -64,7 +71,11 @@ body{
 .cardsRow, .authRow{
   margin-top:60px;
 }
-
+.authRow{
+  background: #E5DBA4;
+  padding:45px;
+  border-radius:10px;
+}
 .loader {
   display:inline-block;
   position:relative;
@@ -89,12 +100,18 @@ body{
   border: 2px solid #a6a6a6;
   padding: 45px;
   padding-right: 80px;
-  background-color: #f4f4f4;
+  background-color: #F5F7EF;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
 }
-
+.card{
+  padding-top: 40px;
+}
 .userWrap{
   height:auto;
   padding-top: 20px;
+  padding-bottom: 75px;
 }
 
 .updateUserInfoButton{
@@ -112,9 +129,11 @@ body{
 .userWrap form .form-group{
   margin-top: 20px;
 }
-.card h4{
-  font-size: 23px;
+
+.cardTitle{
+  font-size: 26px;
 }
+
 .card .cardMainText{
   margin-top: 15px;
   font-size: 16px;
@@ -126,6 +145,7 @@ body{
   position: absolute;
   right: 8px;
   top: -2px;
+  color: red;
 }
 
 .exitBtn{
@@ -134,14 +154,14 @@ body{
   top: 10px;
 }
 
-a.storiesLink{
-  border-right:0;
-
-}
 .storiesLink{
   background-color: #fff;
   border: 1px solid #ddd;
 }
+.storiesLink:first-child{
+  text-align:center;
+}
+
 .storiesLink:hover{
   background-color: #fff;
 }

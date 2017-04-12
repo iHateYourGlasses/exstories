@@ -10,14 +10,14 @@ export default class Header extends Component {
     return (
         <ul className='row headerLinks list-group list-unstyled row-fluid header'>
           <li className=''>
-            <Link to={linkLogInOut} className='col-md-2 col-xs-12 pull-right text-center list-group-item'>
+            <Link to={linkLogInOut} className='col-md-2 col-xs-12 pull-right text-center list-group-item authButton'>
               <span  className={glyph}/>
             </Link>
           </li>
           <li className='col-md-4 col-xs-12'>
-            <Link to='/stories' className='text-center col-xs-12 list-group-item storiesLink'>
-              Истории
-            </Link>
+            <button className="btn btn-link text-center col-xs-12 list-group-item storiesLink">
+              <Link to='/stories/trending'>Истории</Link>
+            </button>
             <button className="btn btn-link storiesLink col-md-5 col-xs-12">
               <Link to="/stories/all">Все подряд</Link>
             </button>
