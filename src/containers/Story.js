@@ -16,9 +16,9 @@ export class Story extends Component {
 
 function mapStateToProps(state) {
   let curStoryId = document.location.pathname.split('/');
-  curStoryId = curStoryId[curStoryId.length - 1];
+  curStoryId = curStoryId[curStoryId.length - 1]*1;
   return {
-    story: state.stories.stories[curStoryId]
+    story: state.stories.stories.filter(stories => stories.id === curStoryId)[0]
   }
 }
 

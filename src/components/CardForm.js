@@ -10,7 +10,13 @@ export default class CardForm extends Component {
   }
 
   CreateNewCard(e) {
-    this.props.CreateNewCard(this.props.cardForm.title, this.props.cardForm.desc, this.props.cardForm.publishType);
+    let storiesArray = this.props.stories, curMaxId = 0;
+
+    storiesArray.map((entry, index) =>
+        curMaxId = entry.id > curMaxId ? entry.id : curMaxId
+    )
+
+    this.props.CreateNewCard(++curMaxId, this.props.cardForm.title, this.props.cardForm.desc, this.props.cardForm.publishType);
   }
 
   render() {
