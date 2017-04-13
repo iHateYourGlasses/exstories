@@ -27,8 +27,9 @@ export default class AuthForm extends Component {
 
   render() {
 
-    let pageTitle = this.props.data.authView === 'login' ? 'Регистрация' : 'Войти';
+    let switchTitle = this.props.data.authView === 'login' ? 'Регистрация' : 'Войти';
     let buttonTitle = this.props.data.authView === 'login' ? 'Войти' : 'Регистрация';
+    let componentTitle = this.props.data.authView === 'login' ? 'Вход' : 'Регистрация';
 
     if (this.props.data.isSigned) {
       return (
@@ -38,7 +39,7 @@ export default class AuthForm extends Component {
     return (
         <div>
           <form className="form authForm col-xs-12">
-            <h4 className="text-center">{pageTitle}</h4>
+            <h4 className="text-center">{componentTitle}</h4>
             <div className='form-group'>
               <label htmlFor="authMail">Почта:</label>
               <input type="mail" className="form-control" id="authMail"
@@ -68,7 +69,7 @@ export default class AuthForm extends Component {
             <button type="button" className="btn btn-primary"
                     onClick={this.Login.bind(this)}>{buttonTitle}
             </button>
-            <u className="registration_switch" onClick={this.switchAuthView.bind(this)}>{pageTitle}</u>
+            <u className="registration_switch" onClick={this.switchAuthView.bind(this)}>{switchTitle}</u>
             {
               (this.props.data.isLoading === true)
                   ? <div className="loader"></div>

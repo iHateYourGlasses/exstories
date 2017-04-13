@@ -10,9 +10,10 @@ import {
   UPDATE_FORM_STATE_SUCCESS
 } from '../constants/UserPage'
 
-
-const initialState = {mail: 'test@mail.ru', pass: '', isSigned: false,
-  userName: 'WagonPenetrator', isLoading: false, authView: 'login'};
+const initialState = {
+  mail: 'test@mail.ru', pass: '', isSigned: false,
+  userName: 'WagonPenetrator', isLoading: false, authView: 'login'
+};
 
 export default function auth(state = initialState, action) {
   switch (action.type) {
@@ -24,7 +25,7 @@ export default function auth(state = initialState, action) {
       return {...state, isLoading: false}
 
     case SWITCH_AUTH_VIEW:
-      let newView = state.authView === 'login'? 'register':'login';
+      let newView = state.authView === 'login' ? 'register' : 'login';
       return {...state, authView: newView}
 
     case UPDATE_AUTH_FORM_INPUT_STATE:

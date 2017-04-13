@@ -158,6 +158,9 @@ body{
   background-color: #fff;
   border: 1px solid #ddd;
 }
+.storiesLink:focus{
+  background-color: #fff;
+}
 .storiesLink:first-child{
   text-align:center;
 }
