@@ -16,7 +16,7 @@ export class Stories extends Component {
           {
             stories.stories.map((entry, index) =>
                 <Card title={entry.title} desc={entry.desc} id={entry.id}
-                key={index} deleteCard={deleteCard}
+                key={index} author={entry.author} authorid={entry.author_id} deleteCard={deleteCard}
                 curPath={this.props.location.pathname}/>
             )
           }

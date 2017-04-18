@@ -107,7 +107,14 @@ body{
 }
 .card{
   padding-top: 40px;
+  padding-bottom: 70px;
 }
+.storyAuthor{
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+
 .userWrap{
   height:auto;
   padding-top: 20px;

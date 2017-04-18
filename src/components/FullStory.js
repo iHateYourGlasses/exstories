@@ -7,8 +7,9 @@ export default class FullStory extends Component {
   }
 
   render() {
-    const {title, desc, curPath, id} = this.props.data;
+    const {title, desc, curPath, id, author, author_id} = this.props.data;
     const link = document.location.pathname;
+    const authorLink = '/user/'+author_id
     return (
         <div className='card col-xs-12'>
 
@@ -18,6 +19,7 @@ export default class FullStory extends Component {
 
           <h4 className="cardTitle"><Link to={link}>{title}</Link></h4>
           <p className="cardMainText">{desc}</p>
+          <span className="storyAuthor"><Link to={authorLink}>{author}</Link></span>
 
         </div>
     )
