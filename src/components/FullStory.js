@@ -19,7 +19,7 @@ export default class FullStory extends Component {
 
           <h4 className="cardTitle"><Link to={link}>{title}</Link></h4>
           <p className="cardMainText">{desc}</p>
-          <span className="storyAuthor"><Link to={authorLink}>{author}</Link></span>
+          <span className="storyAuthor"><Link to={authoczxrLink}>{author}</Link></span>
 
         </div>
     )
