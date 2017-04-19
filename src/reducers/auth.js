@@ -8,7 +8,7 @@ import {
 import {
   LOGOUT_SUCCESS,
   UPDATE_FORM_STATE_SUCCESS
-} from '../constants/UserPage'
+} from '../constants/MyUserPage'
 
 const initialState = {
   mail: 'test@mail.ru', pass: '', isSigned: false,

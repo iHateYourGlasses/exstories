@@ -1,11 +1,11 @@
 import {
   UPDATE_CARD_FORM_NAME,
   UPDATE_CARD_FORM_DESC
-} from '../constants/CardForm'
+} from '../constants/NewStoryForm'
 
 import {
   CREATE_CARD
-} from '../constants/Cards'
+} from '../constants/Stories'
 
 
 export function updateNameState(name) {

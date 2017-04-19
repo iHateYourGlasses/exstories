@@ -2,31 +2,30 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import UserPage from '../components/UserPage'
+import FullStory from '../components/FullStory'
 
-import * as UserPageActions from '../actions/UserPageActions'
+import * as CardActions from '../actions/CardActions'
 
-export class Auth extends Component {
+export class Story extends Component {
   render() {
     return (
-        <div className="row authRow">
-          <UserPage authData={this.props.auth} userPageData={this.props.userpage} actions={this.props.UserPageActions}/>
-        </div>
+        <div className="userWrap"></div>
     );
   }
 }
 
 function mapStateToProps(state) {
+  let curStoryId = document.location.pathname.split('/');
+  curStoryId = curStoryId[curStoryId.length - 1]*1;
   return {
-    userpage: state.userpage,
-    auth: state.auth
+    story: state.stories.stories.filter(stories => stories.id === curStoryId)[0]
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    UserPageActions: bindActionCreators(UserPageActions, dispatch)
+    StoriesActions: bindActionCreators(CardActions, dispatch)
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth)
+export default connect(mapStateToProps, mapDispatchToProps)(Story)

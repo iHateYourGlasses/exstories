@@ -1,6 +1,6 @@
 import {
 UPDATE_CARD_FORM_NAME,
-UPDATE_CARD_FORM_DESC} from '../constants/CardForm'
+UPDATE_CARD_FORM_DESC} from '../constants/NewStoryForm'
 
 const initialState = {title: 'Заголовок', desc: 'Простыня о невзаимной любви', publishType: 'Анонимно'};
 

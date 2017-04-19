@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import Card from '../components/Card'
+import Card from '../components/SingleStory'
 import StoriesFooter from '../components/StoriesFooter'
 
 import * as CardActions from '../actions/CardActions'

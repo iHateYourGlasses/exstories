@@ -1,7 +1,7 @@
 import {
   CREATE_CARD,
   DELETE_CARD
-} from '../constants/Cards'
+} from '../constants/Stories'
 
 const initialState = {
   stories: [{

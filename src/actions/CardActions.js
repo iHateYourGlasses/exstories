@@ -1,6 +1,6 @@
 import {
   DELETE_CARD
-} from '../constants/Cards'
+} from '../constants/Stories'
 
 export function deleteCard(id = false) {
   return (dispatch) => {

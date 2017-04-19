@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import CardForm from '../components/CardForm'
+import CardForm from '../components/NewStoryForm'
 
 import * as CardFormActions from '../actions/CardFormActions'
 

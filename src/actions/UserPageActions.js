@@ -6,7 +6,7 @@ import {
   TRY_TO_UPDATE_FORM_STATE,
   UPDATE_FORM_STATE_SUCCESS,
   UPDATE_FORM_STATE_FAIL
-} from '../constants/UserPage'
+} from '../constants/MyUserPage'
 
 export function logout() {
   return (dispatch) => {

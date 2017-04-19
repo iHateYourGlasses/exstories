@@ -119,6 +119,7 @@ body{
   height:auto;
   padding-top: 20px;
   padding-bottom: 75px;
+  border: 1px solid black;
 }
 
 .updateUserInfoButton{

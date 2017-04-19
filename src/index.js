@@ -11,9 +11,10 @@ import './css/index.css'
 import Logo from './components/Logo'
 //import Footer from './components/Footer'
 
-import CardForm from './containers/CardForm'
+import CardForm from './containers/NewStoryForm'
 import Stories from './containers/Stories'
 import Auth from './containers/Auth'
+import MyUserPage from './containers/MyUserPage'
 import UserPage from './containers/UserPage'
 import Menu from './containers/Menu'
 import Story from './containers/Story'
@@ -27,8 +28,10 @@ render(
           <Logo />
           <Menu />
           <Route path='/login' component={Auth}/>
-          <Route path='/userpage' component={UserPage}/>
+          <Route path='/userpage' component={MyUserPage}/>
           <Route path='/createCard' component={CardForm}/>
+
+          <Route path='/user/:userId' exact={true} component={UserPage}/>
 
           <Route path='/stories/:storyType' exact={true} component={Stories}/>
 
