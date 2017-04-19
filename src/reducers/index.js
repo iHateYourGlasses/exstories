@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import stories from './stories';
-import cardForm from './cardForm';
+import cardForm from './newstoryform';
 import auth from './auth';
-import userpage from './userpage';
+import userpage from './myuserpage';
 
 export default combineReducers({
 	stories,
