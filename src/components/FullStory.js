@@ -7,7 +7,7 @@ export default class FullStory extends Component {
   }
 
   render() {
-    const {title, desc, curPath, id, author, author_id} = this.props.data;
+    const {title, desc, author, author_id} = this.props.data;
     const link = document.location.pathname;
     const authorLink = '/user/'+author_id
     return (

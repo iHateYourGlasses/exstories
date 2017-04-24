@@ -7,6 +7,7 @@ import FullStory from '../components/FullStory'
 import * as CardActions from '../actions/CardActions'
 
 export class Story extends Component {
+
   render() {
     return (
         <FullStory data={this.props.story} />

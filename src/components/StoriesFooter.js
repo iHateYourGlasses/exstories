@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default class StoriesFooter extends Component {
   render() {
     return (
-        <div className="storiesFooter">
+        <div className="storiesFooter col-xs-12">
           <ul className="pagination">
             <li>
               <Link to={'#'+ (+window.location.hash.substring(1) - 1)} href="#" aria-label="Previous">

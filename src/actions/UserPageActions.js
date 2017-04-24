@@ -1,66 +1,37 @@
 import {
-  TRY_TO_LOGOUT,
-  LOGOUT_SUCCESS,
-  LOGOUT_FAIL,
-  UPDATE_USERPAGE_FORM_INPUT_STATE,
-  TRY_TO_UPDATE_FORM_STATE,
-  UPDATE_FORM_STATE_SUCCESS,
-  UPDATE_FORM_STATE_FAIL
-} from '../constants/MyUserPage'
+  USER_GET_DATA_SUCCESS,
+  USER_GET_DATA_FAIL,
+  USER_CLEAR_DATA
+} from '../constants/UserPage'
 
-export function logout() {
+export function getUserData(id) {
   return (dispatch) => {
-    dispatch({
-      type: TRY_TO_LOGOUT,
-      payload: {}
-    });
 
     setTimeout(() => {
       if (Math.random() > 0.1) {
+
+        let userName =  id === '150' ? 'Федор Михайлович' : 'Карл Меннингер'
+
         dispatch({
-          type: LOGOUT_SUCCESS,
-          payload: {}
+          type: USER_GET_DATA_SUCCESS,
+          payload: {id, userName, regDate: '2017-04-05', storiesCount: '1'}
         })
       }
       else {
         dispatch({
-          type: LOGOUT_FAIL,
+          type: USER_GET_DATA_FAIL,
           payload: {}
         })
       }
-    }, 300)
+    }, 400)
   }
 }
 
-export function updateUserData(id, newVal) {
+export function clearUserData() {
   return (dispatch) => {
-    dispatch({
-      type: TRY_TO_UPDATE_FORM_STATE,
-      payload: {id}
-    });
-
-    setTimeout(() => {
-      if (Math.random() > 0.1) {
         dispatch({
-          type: UPDATE_FORM_STATE_SUCCESS,
-          payload: {id, newVal}
+          type: USER_CLEAR_DATA,
+          payload: {}
         })
-      }
-      else {
-        dispatch({
-          type: UPDATE_FORM_STATE_FAIL,
-          payload: {id}
-        })
-      }
-    }, 300)
-  }
-}
-
-export function updateFormInputState(id, newVal) {
-  return (dispatch) => {
-    dispatch({
-      type: UPDATE_USERPAGE_FORM_INPUT_STATE,
-      payload: {id: id, newVal: newVal}
-    });
   }
 }

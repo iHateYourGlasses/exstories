@@ -8,13 +8,12 @@ export default class Header extends Component {
     let linkLogInOut = isSigned ? '/userpage' : '/login';
 
     return (
-        <ul className='row headerLinks list-group list-unstyled row-fluid header'>
-          <li className=''>
-            <Link to={linkLogInOut} className='col-md-2 col-xs-12 pull-right text-center list-group-item authButton'>
-              <span className={glyph}/>
-            </Link>
-          </li>
-          <li className='col-md-4 col-xs-12'>
+        <div className='row headerLinks row-fluid header'>
+          <Link to={linkLogInOut} className='col-sm-1 col-xs-12 pull-right text-right list-group-item authButton'>
+            <span className={glyph}/>
+          </Link>
+
+          <div className='col-md-4 col-xs-12'>
             <Link to='/stories/trending'>
               <button className="btn btn-link text-center col-xs-12 list-group-item storiesLink">
                 Истории
@@ -36,8 +35,8 @@ export default class Header extends Component {
                 В тренде
               </button>
             </Link>
-          </li>
-        </ul>
+          </div>
+        </div>
     )
   }
 }

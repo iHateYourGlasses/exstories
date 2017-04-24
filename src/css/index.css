@@ -1,6 +1,6 @@
 body{
-  /* Background pattern from Subtle Patterns */
-  background-image: url('../img/green_cup.png');
+  background-color: #fafdff;
+  font-family: 'Merriweather', serif;
 }
 #root{
   min-height: 100%;
@@ -26,7 +26,27 @@ body{
 
 .authButton{
   margin-bottom:35px;
+  border:0;
+  background-color: transparent;
 }
+.authButton:hover{
+  background-color: transparent;
+}
+
+@media only screen and (min-width : 320px) {
+
+  .authButton{
+    text-align:center
+  }
+}
+
+@media only screen and (min-width : 992px) {
+
+  .authButton{
+    text-align:right;
+  }
+}
+
 .registration_switch{
   margin-left:10px;
   cursor: pointer;
@@ -69,7 +89,7 @@ body{
 }
 
 .cardsRow, .authRow{
-  margin-top:60px;
+  margin-top:25px;
 }
 .authRow{
   background: #E5DBA4;
@@ -96,14 +116,13 @@ body{
 }
 
 .card, .userWrap{
-  margin-top: 20px;
-  border: 2px solid #a6a6a6;
+  margin-top: 50px;
   padding: 45px;
   padding-right: 80px;
-  background-color: #F5F7EF;
   -webkit-border-radius:10px;
   -moz-border-radius:10px;
   border-radius:10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 .card{
   padding-top: 40px;
@@ -119,7 +138,6 @@ body{
   height:auto;
   padding-top: 20px;
   padding-bottom: 75px;
-  border: 1px solid black;
 }
 
 .updateUserInfoButton{

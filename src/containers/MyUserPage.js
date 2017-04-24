@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux'
 
 import UserPage from '../components/MyUserPage'
 
-import * as UserPageActions from '../actions/UserPageActions'
+import * as UserPageActions from '../actions/MyUserPageActions'
 
 export class MyUserPage extends Component {
   render() {

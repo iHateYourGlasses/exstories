@@ -2,29 +2,50 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import FullStory from '../components/FullStory'
+import Loading from '../components/LoadingScreen'
+import UserPage from '../components/UserPage'
 
-import * as CardActions from '../actions/CardActions'
+import * as UserPageActions from '../actions/UserPageActions'
 
 export class Story extends Component {
+
+  componentDidMount(){
+    this.props.UserPageActions.getUserData(this.props.match.params.userId)
+  }
+
+  componentWillUnmount(){
+    this.props.UserPageActions.clearUserData()
+  }
+
+
   render() {
     return (
-        <div className="userWrap"></div>
+        <div className="userWrap">
+          {{
+            'loading': (
+                <Loading />
+            ),
+            'loaded': (
+             <UserPage data={this.props.user} />
+            ),
+            'error': (
+              <div>error!</div>
+            )
+          }[this.props.user.status]}
+        </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  let curStoryId = document.location.pathname.split('/');
-  curStoryId = curStoryId[curStoryId.length - 1]*1;
   return {
-    story: state.stories.stories.filter(stories => stories.id === curStoryId)[0]
+    user: state.user
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    StoriesActions: bindActionCreators(CardActions, dispatch)
+    UserPageActions: bindActionCreators(UserPageActions, dispatch)
   }
 }
 
