@@ -19,3 +19,4 @@ yarn-error.log*
 .idea/
 backend/vendor/
 backend/config/sensitive.php
+backend/config/headers.php

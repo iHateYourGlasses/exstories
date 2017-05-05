@@ -11,17 +11,18 @@ export default class AuthForm extends Component {
     this.props.actions.switchAuthView();
   }
 
-  Login() {
+  Enter() {
     let mail = this.props.data.mail;
+    let username = this.props.data.userName;
     let password = this.props.data.pass;
-    this.props.actions.login(mail, password);
-  }
-
-
-  Register() {
-    let mail = this.props.data.mail;
-    let password = this.props.data.pass;
-    this.props.actions.login(mail, password);
+    switch (this.props.data.authView){
+      case 'register':
+        this.props.actions.register(mail, username, password);
+        break;
+      case 'login':
+        this.props.actions.login(mail, password);
+        break;
+    }
   }
 
 
@@ -67,12 +68,17 @@ export default class AuthForm extends Component {
                      value={this.props.data.pass}/>
             </div>
             <button type="button" className="btn btn-primary"
-                    onClick={this.Login.bind(this)}>{buttonTitle}
+                    onClick={this.Enter.bind(this)}>{buttonTitle}
             </button>
             <u className="registration_switch" onClick={this.switchAuthView.bind(this)}>{switchTitle}</u>
             {
-              (this.props.data.isLoading === true)
+              (this.props.data.loadingStatus === 'loading')
                   ? <div className="loader"></div>
+                  : null
+            }
+            {
+              (this.props.data.loadingStatus === 'error')
+                  ? <div className="errorMsg">{this.props.data.errorMsg}</div>
                   : null
             }
           </form>

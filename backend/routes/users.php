@@ -48,11 +48,21 @@ $app->post('/api/users/get', function (Request $request, Response $response){
 	$db->dbConnect("main","u0329825_exstories_main"); 
 
 	$stmt = $db->mysqli->prepare(
-		"SELECT * FROM u0329825_exstories_main.users where `user_mail` = ? and `user_pass` = ?;");
+		"SELECT id, user_confirmed FROM u0329825_exstories_main.users where `user_mail` = ? and `user_pass` = ?;");
 
 	$stmt->bind_param("ss", $mail, $wetPass);
 	$result = $stmt->execute();
+  $stmt->bind_result($id, $userConfirmed);
 
+	if($stmt->fetch()) {
+		$token  = md5($mail.$wetPass);
+		$response = ["status"=>true, 'id'=>$id, 'user_confirmed'=>$userConfirmed, 'token'=>$token];
+  }else{
+		$response = ["status"=>false, 'error_msg'=> 'Неверная пара логин/пароль!'];
+	}
+
+	echo json_encode($response);
+  $stmt->close();
 	$db->dbDisconnect();
 });
 
@@ -77,8 +87,7 @@ $app->post('/api/users/add', function (Request $request, Response $response){
 	$stmt = $db->mysqli->prepare(
 		"INSERT INTO `u0329825_exstories_main`.`users`
 	 (`user_created`, `user_name`, `user_mail`, `user_pass`, `user_confirmed`, `user_confirm_hash`, `user_role`)
-	  VALUES 
-	  (?, ?, ?, ?, '0', '', '1');");
+	  VALUES (?, ?, ?, ?, '0', '', '1');");
 	$stmt->bind_param("ssss", $date, $name, $mail, $wetPass);
 	$result = $stmt->execute();
 
@@ -101,9 +110,12 @@ $app->post('/api/users/add', function (Request $request, Response $response){
 	}else{
 		$token  = md5($mail.$wetPass);
 		$response["token"] = $token;
+		$response["userID"] = $newId;
+		$response["user_confirmed"] = '0';
 	}
 
 	echo json_encode($response);
+  $stmt->close();
 	$db->dbDisconnect();
 });
 

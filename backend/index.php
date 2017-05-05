@@ -1,4 +1,5 @@
 <?php
+require_once 'config/headers.php';
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;

@@ -12,17 +12,23 @@ import {
 
 const initialState = {
   mail: 'test@mail.ru', pass: '', isSigned: false,
-  userName: 'WagonPenetrator', isLoading: false, authView: 'login'
+  userName: 'WagonPenetrator', loadingStatus: 'idle', authView: 'login'
 };
 
 export default function auth(state = initialState, action) {
   switch (action.type) {
     case TRY_TO_LOGIN:
-      return {...state, isLoading: true}
+      return {...state, loadingStatus: 'loading'}
     case LOGIN_SUCCESS:
-      return {...state, isLoading: false, isSigned: true}
+      return {
+        ...state,
+        loadingStatus: 'idle',
+        isSigned: true, pass: '',
+        userID: action.payload.userID,
+        authToken: action.payload.authToken}
+
     case LOGIN_FAIL:
-      return {...state, isLoading: false}
+      return {...state, loadingStatus: 'error', errorMsg: action.payload.errorMsg}
 
     case SWITCH_AUTH_VIEW:
       let newView = state.authView === 'login' ? 'register' : 'login';
@@ -33,7 +39,7 @@ export default function auth(state = initialState, action) {
 
 
     case LOGOUT_SUCCESS:
-      return {...state, isLoading: false, isSigned: false}
+      return {...state, loadingStatus: 'idle', isSigned: false}
 
     case UPDATE_FORM_STATE_SUCCESS:
       return {...state, [action.payload.id]: action.payload.newVal}
