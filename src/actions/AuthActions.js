@@ -33,7 +33,6 @@ export function login(mail, pass) {
       payload: {}
     });
 
-    //TODO: подстановка нужных урлов тест/прод
     axios.post(pathSwitch()+'api/users/get', {
       mail: mail,
       pass: pass
@@ -44,7 +43,7 @@ export function login(mail, pass) {
         case true:
           dispatch({
             type: LOGIN_SUCCESS,
-            payload: {authToken: response.data.token, userID: response.data.userID, user_confirmed: response.data.user_confirmed}
+            payload: {authToken: response.data.token, userID: response.data.id, userName: response.data.user_name, user_confirmed: response.data.user_confirmed}
           });
           break;
         case false:

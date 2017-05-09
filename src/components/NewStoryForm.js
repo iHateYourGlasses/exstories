@@ -9,14 +9,14 @@ export default class CardForm extends Component {
     this.props.updateDescState(e.target.value);
   }
 
-  CreateNewCard(e) {
+  CreateNewCard(e) {/*
     let storiesArray = this.props.stories, curMaxId = 0;
 
     storiesArray.map((entry, index) =>
         curMaxId = entry.id > curMaxId ? entry.id : curMaxId
-    )
+    )*/
 
-    this.props.CreateNewCard(++curMaxId, this.props.cardForm.title, this.props.cardForm.desc, this.props.cardForm.publishType);
+    this.props.CreateNewCard(this.props.cardForm, this.props.authData);
   }
 
   render() {
@@ -30,16 +30,16 @@ export default class CardForm extends Component {
           <div className='form-group'>
             <label htmlFor="cardDescription">Описание:</label>
             <textarea className="form-control" rows="5" id="cardDescription" onChange={this.updateDescState.bind(this)}
-                      defaultValue={this.props.cardForm.desc}></textarea>
+                      defaultValue={this.props.cardForm.desc} />
           </div>
           <div className='form-group'>
             <label htmlFor="cardDescription">Опубликовать:</label>
             <select className="form-control" name="publishType" id="publishType"
-                    defaultValue={this.props.isSigned ? 'От своего имени' : 'Анонимно' }>
+                    defaultValue={this.props.authData.isSigned ? 'От своего имени' : 'Анонимно' }>
               <option value="Анонимно">Анонимно</option>
 
               {
-                (this.props.isSigned)
+                (this.props.authData.isSigned)
                     ? <option value="От своего имени">От своего имени</option>
                     : null
               }
@@ -47,6 +47,16 @@ export default class CardForm extends Component {
             </select>
           </div>
           <button type="button" className="btn btn-primary" onClick={this.CreateNewCard.bind(this)}>Сохранить</button>
+          {
+            (this.props.cardForm.status === 'loading')
+                ? <div className="loader"></div>
+                : null
+          }
+          {
+          (this.props.cardForm.status === 'success' || this.props.cardForm.status === 'error' )
+              ? <p>{this.props.cardForm.message}</p>
+              : null
+          }
         </form>
     )
   }

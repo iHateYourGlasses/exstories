@@ -5,9 +5,14 @@ import {bindActionCreators} from 'redux'
 import Card from '../components/SingleStory'
 import StoriesFooter from '../components/StoriesFooter'
 
-import * as CardActions from '../actions/CardActions'
+import * as StoriesActions from '../actions/StoriesActions'
 
 export class Stories extends Component {
+  componentWillMount(){
+    console.log('rendering...');
+    this.props.storiesActions.GetCards();
+  }
+
   render() {
     const {stories} = this.props
     const {deleteCard} = this.props.StoriesActions
@@ -34,7 +39,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    StoriesActions: bindActionCreators(CardActions, dispatch)
+    StoriesActions: bindActionCreators(StoriesActions, dispatch)
   }
 }
 

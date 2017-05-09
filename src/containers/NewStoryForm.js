@@ -8,14 +8,13 @@ import * as CardFormActions from '../actions/CardFormActions'
 
 export class App extends Component {
   render() {
-    const {cardForm, stories} = this.props;
-    const isSigned = this.props.auth.isSigned;
+    const {cardForm} = this.props;
+    const authData = this.props.auth;
     const {updateNameState, updateDescState, CreateNewCard} = this.props.CardFormActions;
     return (
         <div className='row'>
-          <CardForm cardForm={cardForm} isSigned={isSigned} updateNameState={updateNameState}
-                    updateDescState={updateDescState}
-                    stories={stories} CreateNewCard={CreateNewCard}/>
+          <CardForm cardForm={cardForm} authData={authData} updateNameState={updateNameState}
+                    updateDescState={updateDescState} CreateNewCard={CreateNewCard}/>
         </div>
     );
   }
@@ -24,8 +23,7 @@ export class App extends Component {
 function mapStateToProps(state) {
   return {
     cardForm: state.cardForm,
-    auth: state.auth,
-    stories: state.stories.stories
+    auth: state.auth
   }
 }
 

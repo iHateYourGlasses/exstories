@@ -1,45 +1,24 @@
 import {
-  UPDATE_CARD_FORM_NAME,
-  UPDATE_CARD_FORM_DESC,
-  CREATE_STORY_REQUEST,
-  CREATE_STORY_SUCCESS,
-  CREATE_STORY_ERROR,
-  CREATE_STORY_RESET_STATUS
-} from '../constants/NewStoryForm'
+  GET_CARDS_REQUEST,
+  GET_CARDS_SUCCESS,
+  GET_CARDS_ERROR
+} from '../constants/Stories'
 import axios from 'axios';
 import pathSwitch from '../misc/pathSwitcher'
 
 
-export function updateNameState(name) {
+export function GetCards() {
   return (dispatch) => {
     dispatch({
-      type: UPDATE_CARD_FORM_NAME,
-      payload: {title: name}
-    });
-  }
-}
-export function updateDescState(desc) {
-  return (dispatch) => {
-    dispatch({
-      type: UPDATE_CARD_FORM_DESC,
-      payload: {desc: desc}
-    });
-  }
-}
-export function CreateNewCard(storyData, authData) {
-  return (dispatch) => {
-    dispatch({
-      type: CREATE_STORY_REQUEST,
+      type: GET_CARDS_REQUEST,
       payload: {}
     });
 
-    axios.post(pathSwitch()+'api/stories/add', {
-      storyData: storyData,
-      authData: authData
+    axios.post(pathSwitch()+'api/stories/get', {
     })
         .then(function (response) {
           console.log(response);
-          let reqStatus = response.data.status;
+        /*  let reqStatus = response.data.status;
           switch (reqStatus){
             case true:
               dispatch({
@@ -60,7 +39,7 @@ export function CreateNewCard(storyData, authData) {
               payload: {errorMsg: response.data.error_msg}
             });
           }, 2000)
-
+*/
         })
         .catch(function (error) {
           console.log(error);

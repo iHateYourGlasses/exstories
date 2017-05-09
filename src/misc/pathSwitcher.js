@@ -7,7 +7,6 @@ export default function pathSwitch() {
   switch (curLocation){
     case 'exstories.ru':
       return 'https://exstories.ru/';
-      break;
     default:
       return 'http://exstories/';
   }

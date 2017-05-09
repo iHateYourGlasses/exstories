@@ -25,6 +25,7 @@ export default function auth(state = initialState, action) {
         loadingStatus: 'idle',
         isSigned: true, pass: '',
         userID: action.payload.userID,
+        userName: action.payload.userName,
         authToken: action.payload.authToken}
 
     case LOGIN_FAIL:
