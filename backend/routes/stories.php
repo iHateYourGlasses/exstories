@@ -54,4 +54,29 @@ $app->post('/api/stories/add', function (Request $request, Response $response){
 	$db->dbDisconnect();
 });
 
+$app->get('/api/stories/get', function (Request $request, Response $response){
+
+	$db = new DBStorage();
+	$db->dbConnect("main","u0329825_exstories_main"); 
+
+	$sql = "SELECT * FROM u0329825_exstories_main.stories_prod;";
+	$result = $db->dbQuery($sql);
+	$stories = $result->fetch_all(MYSQLI_ASSOC);
+
+	$response = [];
+
+	if(!$stories){
+		$response['status'] = false;
+		$response['error_msg'] = 'Ошибка загрузки историй';
+		echo json_encode($response);
+		exit;
+	}
+	$response['status'] = true;
+	$response['stories']  = $stories;
+
+	echo json_encode($response);
+	$db->dbDisconnect();
+
+});
+
 ?>

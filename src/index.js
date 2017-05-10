@@ -35,7 +35,7 @@ render(
 
           <Route path='/stories/:storyType' exact={true} component={Stories}/>
 
-          <Route path='/stories/:storyType/:storyId' exact={true} component={Story}/>
+          <Route path='/story/:storyId' exact={true} component={Story}/>
 
         </div>
       </Router>

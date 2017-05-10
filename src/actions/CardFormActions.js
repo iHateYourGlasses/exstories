@@ -53,6 +53,8 @@ export function CreateNewCard(storyData, authData) {
                 payload: {errorMsg: response.data.error_msg}
               });
               break;
+            default:
+              console.log(reqStatus);
           }
           setTimeout(function() {
             dispatch({

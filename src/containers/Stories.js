@@ -2,15 +2,15 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import Card from '../components/SingleStory'
+import SingleStory from '../components/SingleStory'
 import StoriesFooter from '../components/StoriesFooter'
+import Loading from '../components/LoadingScreen'
 
 import * as StoriesActions from '../actions/StoriesActions'
 
 export class Stories extends Component {
-  componentWillMount(){
-    console.log('rendering...');
-    this.props.storiesActions.GetCards();
+  componentWillMount() {
+    this.props.StoriesActions.GetCards();
   }
 
   render() {
@@ -19,10 +19,17 @@ export class Stories extends Component {
     return (
         <div className='row cardsRow'>
           {
+            (this.props.stories.loadingStatus === 'loading')
+                ? <Loading /> : null
+          }
+          {
+            (this.props.stories.loadingStatus === 'error')
+                ? <p>{stories.errorMsg}</p> : null
+          }
+          {
             stories.stories.map((entry, index) =>
-                <Card title={entry.title} desc={entry.desc} id={entry.id}
-                key={index} author={entry.author} authorid={entry.author_id} deleteCard={deleteCard}
-                curPath={this.props.location.pathname}/>
+                <SingleStory data={entry} key={+entry.id} deleteCard={deleteCard}
+                      curPath={this.props.location.pathname}/>
             )
           }
           <StoriesFooter />

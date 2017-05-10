@@ -14,32 +14,27 @@ export function GetCards() {
       payload: {}
     });
 
-    axios.post(pathSwitch()+'api/stories/get', {
+    axios.get(pathSwitch()+'api/stories/get', {
     })
         .then(function (response) {
           console.log(response);
-        /*  let reqStatus = response.data.status;
+          let reqStatus = response.data.status;
           switch (reqStatus){
             case true:
               dispatch({
-                type: CREATE_STORY_SUCCESS,
-                payload: {newStoryId: response.data.story_id}
+                type: GET_CARDS_SUCCESS,
+                payload: {stories: response.data.stories}
               });
               break;
             case false:
               dispatch({
-                type: CREATE_STORY_ERROR,
+                type: GET_CARDS_ERROR,
                 payload: {errorMsg: response.data.error_msg}
               });
               break;
+            default:
+              console.log(reqStatus);
           }
-          setTimeout(function() {
-            dispatch({
-              type: CREATE_STORY_RESET_STATUS,
-              payload: {errorMsg: response.data.error_msg}
-            });
-          }, 2000)
-*/
         })
         .catch(function (error) {
           console.log(error);

@@ -22,6 +22,8 @@ export default class AuthForm extends Component {
       case 'login':
         this.props.actions.login(mail, password);
         break;
+      default:
+        console.log(this.props.data.authView);
     }
   }
 

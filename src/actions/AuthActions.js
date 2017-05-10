@@ -52,6 +52,8 @@ export function login(mail, pass) {
             payload: {errorMsg: response.data.error_msg}
           });
           break;
+        default:
+          console.log(reqStatus);
       }
     })
     .catch(function (error) {
@@ -88,6 +90,8 @@ export function register(mail, username, pass) {
             payload: {errorMsg: response.data.error_msg}
           });
           break;
+        default:
+          console.log(reqStatus);
       }
     })
     .catch(function (error) {
