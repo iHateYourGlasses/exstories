@@ -18,6 +18,7 @@ import MyUserPage from './containers/MyUserPage'
 import UserPage from './containers/UserPage'
 import Menu from './containers/Menu'
 import Story from './containers/Story'
+import Home from './components/Home'
 
 const store = configureStore();
 
@@ -36,6 +37,8 @@ render(
           <Route path='/stories/:storyType' exact={true} component={Stories}/>
 
           <Route path='/story/:storyId' exact={true} component={Story}/>
+
+          <Route exact path="/" component={Home}/>
 
         </div>
       </Router>
