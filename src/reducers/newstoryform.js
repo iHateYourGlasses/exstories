@@ -1,6 +1,5 @@
 import {
-UPDATE_CARD_FORM_NAME,
-UPDATE_CARD_FORM_DESC,
+UPDATE_CARD_FORM_INPUT_STATE,
 CREATE_STORY_REQUEST,
 CREATE_STORY_SUCCESS,
 CREATE_STORY_ERROR,
@@ -16,11 +15,12 @@ export default function cards(state = initialState, action) {
 			return { ...state, status: 'success', message: 'Новая истоия добавлена'}
 		case CREATE_STORY_ERROR:
 			return { ...state, status: 'error', message: action.payload.errorMsg}
-		case UPDATE_CARD_FORM_NAME:
-			return { ...state, title: action.payload.title}
-		case UPDATE_CARD_FORM_DESC:
-			return { ...state, desc: action.payload.desc}
-		case CREATE_STORY_RESET_STATUS:
+
+    case UPDATE_CARD_FORM_INPUT_STATE:
+      return {...state, [action.payload.id]: action.payload.newVal}
+
+
+    case CREATE_STORY_RESET_STATUS:
 			return { ...state, status: 'idle', message: ''}
 		default: 
 		 return state;

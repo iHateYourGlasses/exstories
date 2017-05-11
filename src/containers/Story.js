@@ -4,9 +4,14 @@ import {bindActionCreators} from 'redux'
 
 import FullStory from '../components/FullStory'
 
-import * as CardActions from '../actions/CardActions'
+import * as FullStoryActions from '../actions/FullStoryActions'
 
 export class Story extends Component {
+
+  componentWillMount() {
+    let storyID = this.props.match.params.storyId;
+    this.props.FullStoryActions.GetStoryData(storyID);
+  }
 
   render() {
     return (
@@ -16,16 +21,14 @@ export class Story extends Component {
 }
 
 function mapStateToProps(state) {
-  let curStoryId = document.location.pathname.split('/');
-  curStoryId = curStoryId[curStoryId.length - 1]*1;
   return {
-    story: state.stories.stories.filter(stories => stories.id === curStoryId)[0]
+    story: state.fullstory
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    StoriesActions: bindActionCreators(CardActions, dispatch)
+    FullStoryActions: bindActionCreators(FullStoryActions, dispatch)
   }
 }
 

@@ -10,11 +10,9 @@ export class App extends Component {
   render() {
     const {cardForm} = this.props;
     const authData = this.props.auth;
-    const {updateNameState, updateDescState, CreateNewCard} = this.props.CardFormActions;
     return (
         <div className='row'>
-          <CardForm cardForm={cardForm} authData={authData} updateNameState={updateNameState}
-                    updateDescState={updateDescState} CreateNewCard={CreateNewCard}/>
+          <CardForm cardForm={cardForm} authData={authData} actions={this.props.CardFormActions}/>
         </div>
     );
   }

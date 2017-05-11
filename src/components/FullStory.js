@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import Loading from './LoadingScreen'
 
 export default class FullStory extends Component {
   deleteCard(e) {
@@ -7,9 +8,18 @@ export default class FullStory extends Component {
   }
 
   render() {
-    const {title, desc, author, author_id} = this.props.data;
+    let {loadingStatus} = this.props.data;
+    if(loadingStatus === 'loading'){
+      return(
+      <div className='card col-xs-12'>
+        <Loading />
+      </div>
+      )
+    }
+
+    const {story_title, story_body, user_name, user_id} = this.props.data;
     const link = document.location.pathname;
-    const authorLink = '/user/'+author_id
+    const authorLink = '/user/'+user_id
     return (
         <div className='card col-xs-12'>
 
@@ -17,9 +27,9 @@ export default class FullStory extends Component {
             <span aria-hidden="true">&times;</span>
           </button>
 
-          <h4 className="cardTitle"><Link to={link}>{title}</Link></h4>
-          <p className="cardMainText">{desc}</p>
-          <span className="storyAuthor"><Link to={authorLink}>{author}</Link></span>
+          <h4 className="cardTitle"><Link to={link}>{story_title}</Link></h4>
+          <p className="cardMainText">{story_body}</p>
+          <span className="storyAuthor"><Link to={authorLink}>{user_name}</Link></span>
 
         </div>
     )

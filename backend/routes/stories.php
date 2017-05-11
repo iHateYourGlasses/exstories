@@ -30,12 +30,13 @@ $app->post('/api/stories/add', function (Request $request, Response $response){
 	$storyBody = $storyData['desc'];
 	$publishType = $storyData['publishType'] === 'Анонимно' ? 1 : 2;
 
+	$now = date('Y-m-d H:i:s');
 	$stmt = $db->mysqli->prepare(
 		"INSERT INTO `u0329825_exstories_main`.`stories`
-		(`user_id`, `story_title`, `story_body`, `story_type`)
-		 VALUES (?, ?, ?, ?);");
+		(`user_id`, `story_created`, `story_title`, `story_body`, `story_type`)
+		 VALUES (?, ?, ?, ?, ?);");
 
-	$stmt->bind_param("issi", $userID, $storyTitle, $storyBody, $publishType);
+	$stmt->bind_param("isssi", $userID, $now, $storyTitle, $storyBody, $publishType);
 	$result = $stmt->execute();
 	$newStoryId = $stmt->insert_id;
 
@@ -78,5 +79,31 @@ $app->get('/api/stories/get', function (Request $request, Response $response){
 	$db->dbDisconnect();
 
 });
+
+//single story
+$app->get('/api/story/{id}/' , function ($request, $response, $args){
+	$storyToSearch = intval($args["id"]);
+	$db = new DBStorage();
+	$db->dbConnect("main","u0329825_exstories_main"); 
+
+	$sql = "SELECT * FROM u0329825_exstories_main.stories_prod where `id` = ".$storyToSearch;
+	$result = $db->dbQuery($sql)->fetch_assoc();
+
+	$response = [];
+
+	if(!$result){
+		$response['status'] = false;
+		$response['error_msg'] = 'Ошибка загрузки истории';
+		echo json_encode($response);
+		exit;
+	}
+
+	$response['status'] = true;
+	$response['story']  = $result;
+
+
+	echo json_encode($response);
+
+})
 
 ?>

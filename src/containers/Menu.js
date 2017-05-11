@@ -20,11 +20,5 @@ function mapStateToProps(state) {
     auth: state.auth
   }
 }
-/*
- function mapDispatchToProps(dispatch) {
- return {
- StoriesActions: bindActionCreators(StoriesActions, dispatch)
- }
- }*/
 
 export default connect(mapStateToProps)(Cards)

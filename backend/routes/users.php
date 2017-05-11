@@ -2,20 +2,6 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-
-//all users
-$app->get('/api/users', function (Request $request, Response $response){
-	$db = new DBStorage();
-
-	$db->dbConnect("main","u0329825_exstories_main"); 
-	$sql =  'SELECT id, user_name FROM users;';
-	$result = $db->dbQuery($sql);
-	$users = $result->fetch_all(MYSQLI_ASSOC);
-
-	echo json_encode($users);
-	$db->dbDisconnect();
-});
-
 //single user by mail/pass
 $app->post('/api/users/get', function (Request $request, Response $response){
 

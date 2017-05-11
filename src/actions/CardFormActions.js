@@ -1,6 +1,5 @@
 import {
-  UPDATE_CARD_FORM_NAME,
-  UPDATE_CARD_FORM_DESC,
+  UPDATE_CARD_FORM_INPUT_STATE,
   CREATE_STORY_REQUEST,
   CREATE_STORY_SUCCESS,
   CREATE_STORY_ERROR,
@@ -10,22 +9,15 @@ import axios from 'axios';
 import pathSwitch from '../misc/pathSwitcher'
 
 
-export function updateNameState(name) {
+export function updateFormInputState(id, newVal) {
   return (dispatch) => {
     dispatch({
-      type: UPDATE_CARD_FORM_NAME,
-      payload: {title: name}
+      type: UPDATE_CARD_FORM_INPUT_STATE,
+      payload: {id: id,newVal: newVal,}
     });
   }
 }
-export function updateDescState(desc) {
-  return (dispatch) => {
-    dispatch({
-      type: UPDATE_CARD_FORM_DESC,
-      payload: {desc: desc}
-    });
-  }
-}
+
 export function CreateNewCard(storyData, authData) {
   return (dispatch) => {
     dispatch({
