@@ -121,4 +121,34 @@ $app->post('/api/users/check', function (Request $request, Response $response){
 	$db->dbDisconnect();
 });
 
+//single user info
+$app->get('/api/user/{id}/' , function ($request, $response, $args){
+	$userToSearch = intval($args["id"]);
+	$db = new DBStorage();
+	$db->dbConnect("main","u0329825_exstories_main"); 
+
+	$sql = "SELECT date_format(DATE(`user_created`),'%d.%m.%Y') as `user_created`, `user_name` FROM u0329825_exstories_main.users where id = ".$userToSearch;
+	$result = $db->dbQuery($sql)->fetch_assoc();
+
+	$response = [];
+
+	if(!$result){
+		$response['status'] = false;
+		$response['error_msg'] = 'Ошибка загрузки данных пользователя';
+		echo json_encode($response);
+		exit;
+	}
+
+	$response['status'] = true;
+	$response['user']  = $result;
+
+	$sql = "SELECT count(*) as `stories_count` FROM u0329825_exstories_main.stories_prod where `user_id` = ".$userToSearch;
+	$result = $db->dbQuery($sql)->fetch_row()[0];
+
+	$response['user']['stories_count'] = $result;
+
+	echo json_encode($response);
+
+})
+
 ?>

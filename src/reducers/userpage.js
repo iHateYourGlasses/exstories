@@ -12,7 +12,7 @@ export default function user(state = initialState, action) {
   switch (action.type) {
 
     case USER_GET_DATA_SUCCESS:
-      return {status: 'loaded', ...action.payload}
+      return {status: 'loaded', userData:action.payload.userData}
 
     case USER_GET_DATA_FAIL:
       return {status: 'error'}

@@ -1,29 +1,43 @@
 import {
+  USER_GET_DATA_REQUEST,
   USER_GET_DATA_SUCCESS,
   USER_GET_DATA_FAIL,
   USER_CLEAR_DATA
 } from '../constants/UserPage'
+import axios from 'axios';
+import pathSwitch from '../misc/pathSwitcher'
 
 export function getUserData(id) {
   return (dispatch) => {
 
-    setTimeout(() => {
-      if (Math.random() > 0.1) {
+    dispatch({
+      type: USER_GET_DATA_REQUEST,
+      payload: {}
+    });
 
-        let userName =  id === '150' ? 'Федор Михайлович' : 'Карл Меннингер'
-
-        dispatch({
-          type: USER_GET_DATA_SUCCESS,
-          payload: {id, userName, regDate: '2017-04-05', storiesCount: '1'}
-        })
+    axios.get(pathSwitch()+'api/user/'+id+'/', {
+    }).then(function (response) {
+      let reqStatus = response.data.status;
+      switch (reqStatus){
+        case true:
+          dispatch({
+            type: USER_GET_DATA_SUCCESS,
+            payload: {userData: response.data.user}
+          });
+          break;
+        case false:
+          dispatch({
+            type: USER_GET_DATA_FAIL,
+            payload: {errorMsg: response.data.error_msg}
+          });
+          break;
+        default:
+          console.log(reqStatus);
       }
-      else {
-        dispatch({
-          type: USER_GET_DATA_FAIL,
-          payload: {}
-        })
-      }
-    }, 400)
+    })
+        .catch(function (error) {
+          console.log(error);
+        });
   }
 }
 

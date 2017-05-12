@@ -17,7 +17,6 @@ export function GetCards() {
     axios.get(pathSwitch()+'api/stories/get', {
     })
         .then(function (response) {
-          console.log(response);
           let reqStatus = response.data.status;
           switch (reqStatus){
             case true:

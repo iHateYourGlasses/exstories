@@ -9,7 +9,7 @@ import * as UserPageActions from '../actions/UserPageActions'
 
 export class Story extends Component {
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.UserPageActions.getUserData(this.props.match.params.userId)
   }
 
